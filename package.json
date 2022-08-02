@@ -1,0 +1,37 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "backend diplom",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denwer81/movies-explorer-api.git"
+  },
+  "author": "Filatov Denis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Denwer81/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/Denwer81/movies-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "limiter": "^2.1.0",
+    "mongoose": "^6.4.0",
+    "validator": "^13.7.0"
+  }
+}
