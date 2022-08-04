@@ -21,7 +21,7 @@ const createMovie = (req, res, next) => {
     nameRU,
     nameEN,
     thumbnail,
-    id: movieId,
+    movieId,
   } = req.body;
 
   Movie.create({
@@ -43,7 +43,7 @@ const createMovie = (req, res, next) => {
 };
 
 const deleteMovie = (req, res, next) => {
-  Movie.findById(req.params.movieId)
+  Movie.findById(req.params.id)
     .orFail(() => new NotFoundError())
     .then((movie) => {
       if (movie.owner.toString() !== req.user._id) {
