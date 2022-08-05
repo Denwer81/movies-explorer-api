@@ -1,8 +1,7 @@
-//! добавить домены, если буду разворачивать на новых
 module.exports.allowedCors = [
   'http://localhost:3000',
   'http://localhost:3001',
-  'https://movies.om.nomoredomains.xyz',
-  'http://denwer.nomoredomains.xyz',
-  'https://denwer.nomoredomains.xyz',
+  'https://api.nomoreparties.co/beatfilm-movies',
+  'http://denwer.nomoredomains.sbs',
+  'https://api.denwer.nomoredomains.sbs',
 ];

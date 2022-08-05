@@ -4,7 +4,7 @@ const BadRequestErrors = require('../errors/BadRequestErrors');
 
 const urlValidation = Joi.string().required().custom((v) => {
   if (!validator.isURL(v)) {
-    throw new BadRequestErrors();
+    throw new BadRequestErrors().message;
   }
   return v;
 });
