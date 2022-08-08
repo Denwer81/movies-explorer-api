@@ -1,8 +1,9 @@
+const { FORBIDDEN, FORBIDDEN_MESSAGE } = require('../utils/constants');
+
 class ForbidenErrors extends Error {
-  constructor(message = 'Ошибка доступа') {
+  constructor(message = FORBIDDEN_MESSAGE) {
     super(message);
-    this.message = { message };
-    this.code = 403;
+    this.code = FORBIDDEN;
     this.name = 'Forbiden';
   }
 }

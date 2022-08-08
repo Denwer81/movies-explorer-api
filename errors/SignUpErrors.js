@@ -1,8 +1,9 @@
+const { SIGN_UP_ERR, SIGN_UP_ERR_MESSAGE } = require('../utils/constants');
+
 class SignUpErrors extends Error {
-  constructor(message = 'Пользователь с таким Email существует') {
+  constructor(message = SIGN_UP_ERR_MESSAGE) {
     super(message);
-    this.message = { message };
-    this.code = 409;
+    this.code = SIGN_UP_ERR;
     this.name = 'SignUpError';
   }
 }

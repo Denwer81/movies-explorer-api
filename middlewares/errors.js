@@ -1,25 +1,32 @@
+const {
+  SIGN_UP_ERR,
+  SIGN_UP_ERR_MESSAGE,
+  BAD_REQUEST,
+  BAD_REQUEST_MESSAGE,
+  SERVER_ERR,
+  SERVER_ERR_MESSAGE,
+} = require('../utils/constants');
+
 const setError = (err, _, res, next) => {
   if (err.code === 11000) {
     res
-      .status(409)
-      .send({ message: 'Пользователь с таким Email существует' });
-
+      .status(SIGN_UP_ERR)
+      .send(SIGN_UP_ERR_MESSAGE);
     return;
   }
-  if (err.message === 'Validation failed' || err.name === 'CastError' || err.name === 'ValidationError') {
+  if (err.name === 'CastError' || err.name === 'ValidationError') {
     res
-      .status(400)
-      .send({ message: 'Переданы некорректные данные' });
-
+      .status(BAD_REQUEST)
+      .send(BAD_REQUEST_MESSAGE);
     return;
   }
   if (err.code === undefined) {
     res
-      .status(500)
-      .send({ message: 'На сервере произошла ошибка' });
+      .status(SERVER_ERR)
+      .send(SERVER_ERR_MESSAGE);
   }
 
-  res.status(err.code).send(err.message);
+  res.status(err.code).send({ message: err.message });
 
   next();
 };

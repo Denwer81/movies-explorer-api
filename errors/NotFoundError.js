@@ -1,8 +1,9 @@
+const { NOT_FOUND, NOT_FOUND_MESSAGE } = require('../utils/constants');
+
 class NotFoundError extends Error {
-  constructor(message = 'Переданые данные не найдены') {
+  constructor(message = NOT_FOUND_MESSAGE) {
     super(message);
-    this.message = { message };
-    this.code = 404;
+    this.code = NOT_FOUND;
     this.name = 'NotFound';
   }
 }

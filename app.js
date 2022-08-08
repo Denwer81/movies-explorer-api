@@ -17,7 +17,7 @@ const mainRouter = require('./routes/index');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-mongoose.connect(NODE_ENV === 'production' ? DEV_MONGO_URL : MONGO_URL);
+mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : DEV_MONGO_URL);
 
 app.use(express.json());
 

@@ -1,4 +1,5 @@
 const mainRouter = require('express').Router();
+const { PAGE_NOT_FOUND_MESSAGE } = require('../utils/constants');
 
 const { createUser, login } = require('../controllers/users');
 const { signUpValidtion, signInValidation } = require('../utils/joiValidation');
@@ -10,9 +11,10 @@ const NotFoundError = require('../errors/NotFoundError');
 mainRouter.post('/signin', signInValidation, login);
 mainRouter.post('/signup', signUpValidtion, createUser);
 
-mainRouter.use('/users', auth, usersRouter);
-mainRouter.use('/movies', auth, moviesRouter);
+mainRouter.use(auth);
+mainRouter.use('/users', usersRouter);
+mainRouter.use('/movies', moviesRouter);
 
-mainRouter.use((_, __, next) => next(new NotFoundError('Путь не найден')));
+mainRouter.use((_, __, next) => next(new NotFoundError(PAGE_NOT_FOUND_MESSAGE)));
 
 module.exports = mainRouter;

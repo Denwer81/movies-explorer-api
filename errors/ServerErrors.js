@@ -1,8 +1,9 @@
+const { SERVER_ERR, SERVER_ERR_MESSAGE } = require('../utils/constants');
+
 class ServerErrors extends Error {
-  constructor(message = 'На сервере произошла ошибка') {
+  constructor(message = SERVER_ERR_MESSAGE) {
     super(message);
-    this.message = { message };
-    this.code = 500;
+    this.code = SERVER_ERR;
     this.name = 'ServerError';
   }
 }

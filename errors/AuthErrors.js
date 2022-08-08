@@ -1,9 +1,10 @@
+const { AUTH, AUTH_MESSAGE } = require('../utils/constants');
+
 class AuthErrors extends Error {
-  constructor(message = 'Email или пароль не верные') {
+  constructor(message = AUTH_MESSAGE) {
     super(message);
-    this.message = { message };
-    this.code = 401;
-    this.name = 'AuthError';
+    this.code = AUTH;
+    this.name = 'Unauthorized';
   }
 }
 
