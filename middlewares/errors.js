@@ -11,19 +11,19 @@ const setError = (err, _, res, next) => {
   if (err.code === 11000) {
     res
       .status(SIGN_UP_ERR)
-      .send(SIGN_UP_ERR_MESSAGE);
+      .send({ message: SIGN_UP_ERR_MESSAGE });
     return;
   }
   if (err.name === 'CastError' || err.name === 'ValidationError') {
     res
       .status(BAD_REQUEST)
-      .send(BAD_REQUEST_MESSAGE);
+      .send({ message: BAD_REQUEST_MESSAGE });
     return;
   }
   if (err.code === undefined) {
     res
       .status(SERVER_ERR)
-      .send(SERVER_ERR_MESSAGE);
+      .send({ message: SERVER_ERR_MESSAGE });
   }
 
   res.status(err.code).send({ message: err.message });

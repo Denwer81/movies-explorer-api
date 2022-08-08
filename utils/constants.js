@@ -5,7 +5,8 @@ module.exports.NOT_FOUND = 404;
 module.exports.SERVER_ERR = 500;
 module.exports.SIGN_UP_ERR = 409;
 
-module.exports.AUTH_MESSAGE = 'Email или пароль не верные';
+module.exports.AUTH_MESSAGE = 'Необходима авторизация';
+module.exports.BAD_USER_DATA_MESSAGE = 'Email или пароль не верные';
 module.exports.BAD_REQUEST_MESSAGE = 'Некорректные данные';
 module.exports.FORBIDDEN_MESSAGE = 'Ошибка доступа';
 module.exports.NOT_FOUND_MESSAGE = 'Переданые данные не найдены';

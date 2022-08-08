@@ -9,7 +9,7 @@ const auth = (req, _, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    next(new AuthError('Необходима авторизация'));
+    next(new AuthError());
     return;
   }
 
@@ -19,7 +19,7 @@ const auth = (req, _, next) => {
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : DEV_KEY);
   } catch (err) {
-    next(new AuthError('Необходима авторизация'));
+    next(new AuthError());
     return;
   }
 
